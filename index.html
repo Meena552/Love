@@ -253,25 +253,31 @@ function startSlideshow(){
   index=0;
   let img=document.getElementById("slideImg");
 
+  function startSlideshow(){
+  showPage("p8");
+  index=0;
+  let img=document.getElementById("slideImg");
+
   let interval=setInterval(()=>{
     img.src=images[index];
     img.className="fade";
     index++;
 
-   if(index===images.length){
-  clearInterval(interval);
-  crackers();
+    if(index===images.length){
+      clearInterval(interval);
+      crackers();
 
-  setTimeout(()=>{
-    let love = document.createElement("h1");
-    love.innerText = "I Love You ❤️ Love You Forever 💖";
-    love.style.color = "#ff4d6d";
-    love.style.fontSize = "50px";
-    love.style.marginTop = "20px";
-    document.getElementById("p8").appendChild(love);
-  },2000);
+      setTimeout(()=>{
+        let love=document.createElement("h1");
+        love.innerText="I Love You ❤️ Love You Forever 💖";
+        love.style.color="#ff4d6d";
+        love.style.fontSize="50px";
+        love.style.marginTop="20px";
+        document.getElementById("p8").appendChild(love);
+      },2000);
+    }
+  },3000);
 }
-
 function crackers(){
   for(let i=0;i<15;i++){
     setTimeout(()=>{
@@ -287,5 +293,6 @@ function crackers(){
 
 </body>
 </html>
+
 
 
