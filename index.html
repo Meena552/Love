@@ -6,237 +6,279 @@
 
 <style>
 body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:#ffd6d6;
-    overflow:hidden;
-    text-align:center;
+  margin:0;
+  font-family:Segoe UI, sans-serif;
+  background:#ffd6d6;
+  overflow:hidden;
+  text-align:center;
 }
 
-/* COMMON */
+/* pages */
 .page{
-    display:none;
-    height:100vh;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
+  display:none;
+  height:100vh;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
+.show{display:flex}
 
-.show{ display:flex; }
-
-.box{
-    background:white;
-    padding:25px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.3);
-}
-
-/* LETTER */
+/* letter */
 .letter{
-    width:180px;
-    height:120px;
-    background:#ff4d6d;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    border-radius:12px;
-    cursor:pointer;
-    font-size:18px;
-    transform:perspective(600px) rotateX(10deg);
-    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+  width:180px;
+  height:120px;
+  background:#ff4d6d;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:12px;
+  cursor:pointer;
+  font-size:18px;
+  transform:perspective(600px) rotateX(12deg);
+  box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-/* BUTTONS */
-button{
-    padding:10px 25px;
-    margin:10px;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-    font-size:16px;
+/* boxes */
+.box,.gift,.paper{
+  background:#fff;
+  padding:25px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
 }
 
-#yesBtn{ background:#ff4d6d;color:white; }
-#noBtn{ background:#ccc; }
-
-/* GIFTS */
-.gift{
-    background:white;
-    padding:20px;
-    border-radius:12px;
-    margin:20px;
-    cursor:pointer;
-    box-shadow:0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* PAPER */
 .paper{
-    background:#fffdf5;
-    padding:25px;
-    border-radius:12px;
-    width:80%;
-    max-width:500px;
-    box-shadow:inset 0 0 10px rgba(0,0,0,0.15);
+  width:80%;
+  max-width:500px;
 }
 
-/* FALLING */
+button{
+  padding:10px 25px;
+  margin:10px;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:16px;
+}
+
+#yesBtn{background:#ff4d6d;color:#fff;}
+#noBtn{background:#ccc;}
+
+/* falling items */
 .fall{
-    position:fixed;
-    top:-50px;
-    animation:fall linear infinite;
+  position:fixed;
+  top:-40px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);}
 }
 
-@keyframes fall{
-    to{ transform:translateY(110vh); }
+/* crackers */
+.firework{
+  position:fixed;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:boom 1s ease-out forwards;
+}
+@keyframes boom{
+  100%{
+    transform:scale(25);
+    opacity:0;
+    box-shadow:
+      0 0 red,
+      20px 0 yellow,
+      -20px 0 orange,
+      0 20px pink,
+      0 -20px violet,
+      15px 15px cyan,
+      -15px -15px lime;
+  }
+}
+
+/* slideshow */
+.fade{
+  animation:fade 3s;
+}
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity:1;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- PAGE 1 -->
-<div id="page1" class="page show">
-    <h2>I have a message for you My dear 💌</h2>
-    <div class="letter" onclick="openDialog()">Click me here</div>
-</div>
-
-<!-- PAGE 2 -->
-<div id="page2" class="page">
-    <div class="box">
-        <h3>Will you be my Valentine? 💖</h3>
-        <button id="yesBtn" onclick="yesClicked()">Yes</button>
-        <button id="noBtn" onclick="noClicked()">No</button>
-        <br><br><br><br>
-        <img src="imag1.jpg" width="200">
-    </div>
-</div>
-
-<!-- PAGE 3 -->
-<div id="page3" class="page">
-    <div class="box">
-        <h3>Close your eyes and Feel the moment 💕</h3>
-        <p><b>My Heart belongs to you</b></p>
-    </div>
-</div>
-
-<!-- PAGE 4 -->
-<div id="page4" class="page">
-    <div class="gift" onclick="openGift1()">🎁 This is Gift 1</div>
-</div>
-
-<!-- PAGE 5 -->
-<div id="page5" class="page">
-    <div class="paper">
-        En Viral Idukula Un Viral Kedakanu,<br>
-        Nasungura Alavuku Irukki Nan Pudikanum 💞
-    </div>
-</div>
-
-<!-- PAGE 6 -->
-<div id="page6" class="page">
-    <div class="gift" onclick="openGift2()">🎁 A Small Message for You my Love</div>
-</div>
-
-<!-- PAGE 7 -->
-<div id="page7" class="page">
-    <div class="paper">
-        I Love You Manoj ❤️<br><br>
-        Na una romba miss panra..<br>
-        Enaku edhavadhu problem varumbothu,<br>
-        ne first person ah irundhu adha solve pananum.<br><br>
-        Na sad ah feel panalo, low ah feel panalo,<br>
-        ne en kaiya pudichu <b>"Na iruka, ellame paathukla"</b> nu solanum.<br><br>
-        Ena happy ah paathuko 💕<br>
-        Happy Valentine’s Day 💖
-    </div>
-    <div class="gift" onclick="openGift3()">Move Next ➡️</div>
-</div>
-
-<!-- PAGE 8 -->
-<div id="page8" class="page">
-    <img id="memoryImg" width="300">
-</div>
-
 <audio id="song1" src="song1.mp3"></audio>
 <audio id="song2" src="song2.mp3"></audio>
 <audio id="bgSong" src="song1.mp3" loop></audio>
 
+<!-- PAGE 1 -->
+<div id="p1" class="page show">
+  <h2>I have a message for you My dear 💌</h2>
+  <div class="letter" onclick="showPage('p2')">Click me here</div>
+</div>
+
+<!-- PAGE 2 -->
+<div id="p2" class="page">
+  <div class="box">
+    <h3>Will you be my Valentine? 💖</h3>
+    <button id="yesBtn" onclick="yesClick()">Yes</button>
+    <button id="noBtn" onclick="noClick()">No</button>
+    <br><br><br><br>
+    <img src="imag1.jpg" width="200">
+  </div>
+</div>
+
+<!-- PAGE 3 -->
+<div id="p3" class="page">
+  <div class="box">
+    <h3>Close your eyes and Feel the moment 💕</h3>
+    <p><b>My Heart belongs to you</b></p>
+  </div>
+</div>
+
+<!-- PAGE 4 -->
+<div id="p4" class="page">
+  <div class="gift" onclick="openGift1()">🎁 This is Gift 1</div>
+</div>
+
+<!-- PAGE 5 -->
+<div id="p5" class="page">
+  <div class="paper">
+    En Viral Idukula Un Viral Kedakanu,<br>
+    Nasungura Alavuku Irukki Nan Pudikanum 💞
+  </div>
+</div>
+
+<!-- PAGE 6 -->
+<div id="p6" class="page">
+  <div class="gift" onclick="openGift2()">🎁 A Small Message for You my Love</div>
+</div>
+
+<!-- PAGE 7 -->
+<div id="p7" class="page">
+  <div class="paper">
+    I Love You Manoj ❤️<br><br>
+    Na una romba miss panra..<br>
+    Enaku edhavadhu problem varumbothu,<br>
+    ne first person ah irundhu adha solve pananum.<br><br>
+    Na sad ah feel panalo, low ah feel panalo,<br>
+    ne en kaiya pudichu <b>"Na iruka, ellame paathukla"</b> nu solanum.<br><br>
+    Ena happy ah paathuko 💕<br>
+    Happy Valentine’s Day 💖
+  </div>
+  <br>
+  <div class="gift" onclick="startSlideshow()">Move Next ➡️</div>
+</div>
+
+<!-- PAGE 8 -->
+<div id="p8" class="page">
+  <img id="slideImg" width="300"><br><br>
+  <h3>Love You Forever 💖</h3>
+</div>
+
 <script>
 let noCount=0;
 let images=["pics1.png","pics2.png","pics3.png","pics4.png","pics5.png"];
-let imgIndex=0;
+let index=0;
 
 function showPage(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('show'));
-    document.getElementById(id).classList.add('show');
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("show"));
+  document.getElementById(id).classList.add("show");
 }
 
-function openDialog(){ showPage('page2'); }
-
-function noClicked(){
-    noCount++;
-    if(noCount===1) alert("Mandaiya Odachuruva 😤");
-    else{
-        let btn=document.getElementById("noBtn");
-        btn.style.position="absolute";
-        btn.style.left=Math.random()*80+"%";
-        btn.style.top=Math.random()*80+"%";
-    }
+function noClick(){
+  noCount++;
+  if(noCount===1){
+    alert("Mandaiya Odachuruva 😤");
+  }else{
+    let b=document.getElementById("noBtn");
+    b.style.position="absolute";
+    b.style.left=Math.random()*80+"%";
+    b.style.top=Math.random()*80+"%";
+  }
 }
 
-function yesClicked(){
-    showPage('page3');
-    playSong('song1',0.3,30000);
-    createFalls("🌹",30);
-    setTimeout(()=>createFalls("🦋",15),3000);
-    setTimeout(()=>showPage('page4'),30000);
+function yesClick(){
+  let s=document.getElementById("song1");
+  s.volume=0.3;
+  s.play();
+
+  showPage("p3");
+  fall("🌹",30);
+  setTimeout(()=>fall("🦋",20),3000);
+
+  setTimeout(()=>{
+    s.pause();
+    showPage("p4");
+  },30000);
 }
 
 function openGift1(){
-    showPage('page5');
-    playSong('song2',1,30000);
-    setTimeout(()=>showPage('page6'),30000);
+  let s=document.getElementById("song2");
+  s.play();
+  showPage("p5");
+
+  setTimeout(()=>{
+    s.pause();
+    showPage("p6");
+  },30000);
 }
 
 function openGift2(){
-    document.getElementById("bgSong").volume=0.3;
-    document.getElementById("bgSong").play();
-    createFalls("🌸",20);
-    createFalls("🦋",15);
-    showPage('page7');
+  let bg=document.getElementById("bgSong");
+  bg.volume=0.3;
+  bg.play();
+
+  fall("🌸",25);
+  fall("🦋",20);
+  showPage("p7");
 }
 
-function openGift3(){
-    showPage('page8');
-    document.getElementById("bgSong").play();
-    let img=document.getElementById("memoryImg");
-    let interval=setInterval(()=>{
-        img.src=images[imgIndex];
-        imgIndex++;
-        if(imgIndex===images.length){
-            clearInterval(interval);
-            document.body.innerHTML += `<h1 style="color:#ff4d6d;">I Love You ❤️</h1>`;
-        }
-    },2000);
+function fall(sym,count){
+  for(let i=0;i<count;i++){
+    let d=document.createElement("div");
+    d.className="fall";
+    d.innerText=sym;
+    d.style.left=Math.random()*100+"%";
+    d.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(d);
+  }
 }
 
-function playSong(id,vol,time){
-    let s=document.getElementById(id);
-    s.volume=vol;
-    s.play();
-    setTimeout(()=>s.pause(),time);
-}
+function startSlideshow(){
+  showPage("p8");
+  index=0;
+  let img=document.getElementById("slideImg");
 
-function createFalls(symbol,count){
-    for(let i=0;i<count;i++){
-        let f=document.createElement("div");
-        f.className="fall";
-        f.innerText=symbol;
-        f.style.left=Math.random()*100+"%";
-        f.style.animationDuration=(3+Math.random()*5)+"s";
-        document.body.appendChild(f);
+  let interval=setInterval(()=>{
+    img.src=images[index];
+    img.className="fade";
+    index++;
+
+    if(index===images.length){
+      clearInterval(interval);
+      crackers();
+      setTimeout(()=>{
+        document.getElementById("p8").innerHTML +=
+          "<h1 style='color:#ff4d6d'>I Love You ❤️<br>Love You Forever</h1>";
+      },2000);
     }
+  },3000);
+}
+
+function crackers(){
+  for(let i=0;i<15;i++){
+    setTimeout(()=>{
+      let f=document.createElement("div");
+      f.className="firework";
+      f.style.left=Math.random()*100+"%";
+      f.style.top=Math.random()*100+"%";
+      document.body.appendChild(f);
+    },i*300);
+  }
 }
 </script>
 
