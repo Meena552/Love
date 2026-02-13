@@ -258,15 +258,18 @@ function startSlideshow(){
     img.className="fade";
     index++;
 
-    if(index===images.length){
-      clearInterval(interval);
-      crackers();
-      setTimeout(()=>{
-        document.getElementById("p8").innerHTML +=
-          "<h1 style='color:#ff4d6d'>I Love You Forever</h1>";
-      },2000);
-    }
-  },3000);
+   if(index===images.length){
+  clearInterval(interval);
+  crackers();
+
+  setTimeout(()=>{
+    let love = document.createElement("h1");
+    love.innerText = "I Love You ❤️ Love You Forever 💖";
+    love.style.color = "#ff4d6d";
+    love.style.fontSize = "50px";
+    love.style.marginTop = "20px";
+    document.getElementById("p8").appendChild(love);
+  },2000);
 }
 
 function crackers(){
@@ -284,4 +287,5 @@ function crackers(){
 
 </body>
 </html>
+
 
